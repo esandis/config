@@ -1,0 +1,29 @@
+[credential]
+	helper = manager
+
+[alias]
+	s = status
+	m = merge
+
+	c = commit
+	ca = commit -a
+
+	ps = push
+	po = push -u origin
+
+	pl = pull
+
+	fa = fetch --all --prune
+
+	co = checkout
+	cn = checkout -b
+	dc = checkout --
+
+	createbranch = !sh -c 'git checkout -b $1-$2 \
+		&& git commit --allow-empty -m \"$1: Initial Commit.\" \
+		&& git push -u origin $1-$2' -
+	deletebranch = !sh -c 'git branch -D $1 \
+		&& git push origin --delete $1' -
+
+[core]
+	editor = notepad
